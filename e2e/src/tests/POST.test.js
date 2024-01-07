@@ -32,3 +32,19 @@ test('Verify POST request response test', async ({request}) => {
 
     console.log(await responseBody.token);
 })
+
+test.only('Verify unsuccessful POST request response object test', async ({request}) => {
+
+    const response = await request.post('/api/login', {
+        data:{
+            email: 'peter@klaven'
+        }
+    })
+
+    expect(await response.status()).toBe(400)
+
+    expect(await response.json()).toEqual(expect.objectContaining({
+        error: 'Missing password'
+    }))
+    
+})
