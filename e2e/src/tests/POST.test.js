@@ -33,7 +33,7 @@ test('Verify POST request response test', async ({request}) => {
     console.log(await responseBody.token);
 })
 
-test.only('Verify unsuccessful POST request response object test', async ({request}) => {
+test('Verify unsuccessful POST request response object test', async ({request}) => {
 
     const response = await request.post('/api/login', {
         data:{
